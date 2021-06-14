@@ -33,7 +33,8 @@ const Task = ({ task }) => {
         <div onClick={() => setModal(true)} className="p-2 mx-2 md:mx-auto sm:w-12/12 md:w-10/12 lg:w-8/12 xl:w-5/12 cursor-pointer">
             <div className="border flex items-center justify-between px-5 py-3 rounded shadow-md">
                 <div>
-                    <span className={`text-${task.status.color}-500 bg-${task.status.color}-500 bg-opacity-20 px-2 py-1 rounded`}>{task.status.text}</span>
+                    {task.status.color === "green" && <span className={`text-green-500 bg-green-500 bg-opacity-20 px-2 py-1 rounded`}>{task.status.text}</span>}
+                    {task.status.color !== "green" && <span className={`text-orange-500 bg-orange-500 bg-opacity-20 px-2 py-1 rounded`}>{task.status.text}</span>}
                     <h2 className="font-medium text-xl mt-1">{task.title}</h2>
                     <p className="text-gray-600">Créé le {new Date(task.date).toLocaleDateString()}</p>
                     <p className="text-lg mt-2 text-gray-500">{task.description}</p>
